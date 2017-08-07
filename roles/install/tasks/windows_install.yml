@@ -10,6 +10,6 @@
     chdir: C:\{{ destination_dir }}\
 
 - name: remove installer
-  win_shell: erase .\cphalo-4.1.0-win64.exe
+  win_shell: erase .\cphalo-{{ halo_package_version }}-win64.exe
   args:
     chdir: C:\{{ destination_dir }}\
