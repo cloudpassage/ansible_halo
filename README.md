@@ -65,7 +65,7 @@ Below instructions are for linux control machine.
         destination_dir: tmp           # Halo Daemon download desitanation
     ```
 
-4. Make sure port 5986 is open on your Windows server
+4. Make sure port `5986` is open on your Windows server.
 
 5. Open the file `all` located in `group_vars/all` and paste in your Halo agent key.
 
@@ -74,6 +74,8 @@ Below instructions are for linux control machine.
     ```
         agent_key: abcdefghij123456
     ```
+
+6. Make sure to enable and configure PowerShell remoting. To automate the setup of WinRM, you can run the examples/scripts/ConfigureRemotingForAnsible.ps1 (https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1) script on the remote machine in a PowerShell console as an administrator
 
 #### Program Usage (Commands) install, upgrade, uninstall, start, stop, restart for Linux servers
 
