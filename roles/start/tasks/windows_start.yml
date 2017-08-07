@@ -1,0 +1,5 @@
+---
+- name: start the Halo daemon
+  win_service:
+    name: cphalo
+    state: started

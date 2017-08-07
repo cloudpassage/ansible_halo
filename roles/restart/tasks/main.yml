@@ -5,3 +5,7 @@
 - include: yum_restart.yml
   when: ansible_os_family == 'RedHat'
   tags: restart
+
+- include: windows_restart.yml
+  when: ansible_os_family == 'Windows'
+  tags: restart

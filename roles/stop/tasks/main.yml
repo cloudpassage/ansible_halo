@@ -5,3 +5,7 @@
 - include: yum_stop.yml
   when: ansible_os_family == 'RedHat'
   tags: stop
+
+- include: windows_stop.yml
+  when: ansible_os_family == 'Windows'
+  tags: stop

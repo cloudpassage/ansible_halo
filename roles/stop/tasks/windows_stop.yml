@@ -1,0 +1,5 @@
+---
+- name: Stop the Halo daemon
+  win_service:
+    name: cphalo
+    state: stopped
