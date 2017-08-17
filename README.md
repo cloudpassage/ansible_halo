@@ -79,13 +79,13 @@ Below instructions are for linux control machine.
 
 7. If you are using AWS for your windows servers, you can automate the PowerShell remoting configuration by specifying the below powershell script before launching the AWS windows server. Please paste the below text in Step 3: Configure Instance Details -> Advanced Details -> User Data
 
-```
-<powershell>
-Invoke-Expression ((New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'))
-</powershell>
+    ```
+    <powershell>
+    Invoke-Expression ((New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'))
+    </powershell>
 
-```
-Please reference (http://blog.rolpdog.com/2015/09/manage-stock-windows-amis-with-ansible.html) for more information.
+    ```
+    Please reference (http://blog.rolpdog.com/2015/09/manage-stock-windows-amis-with-ansible.html) for more information.
 
 #### Program Usage (Commands) install, upgrade, uninstall, start, stop, restart for Linux servers
 
@@ -124,7 +124,7 @@ Please reference (http://blog.rolpdog.com/2015/09/manage-stock-windows-amis-with
 5. Run the following command to restart Halo.
     `ansible-playbook -i hosts halo.yml -t restart`
 
-6. To upgrade Halo agent version. Provide the later agent version in group_vars/windows.yml and run the following command.
+6. To upgrade Halo agent version. Provide the later agent version in `group_vars/windows.yml` and run the following command.
     `ansible-playbook -i hosts halo.yml -t install`
 
 <!---
