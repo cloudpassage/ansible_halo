@@ -57,7 +57,7 @@ Below instructions are for linux control machine.
 
     ```
         ansible_user: Administrator
-        ansible_password:
+        ansible_password: password # Windows host password
         ansible_port: 5986
         ansible_connection: winrm
         ansible_winrm_server_cert_validation: ignore
@@ -76,6 +76,16 @@ Below instructions are for linux control machine.
     ```
 
 6. Make sure to enable and configure PowerShell remoting. To automate the setup of WinRM, you can run the examples/scripts/ConfigureRemotingForAnsible.ps1 (https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1) script on the remote machine in a PowerShell console as an administrator
+
+7. If you are using AWS for your windows servers, you can automate the PowerShell remoting configuration by specifying the below powershell script before launching the AWS windows server. Please paste the below text in Step 3: Configure Instance Details -> Advanced Details -> User Data
+
+```
+<powershell>
+Invoke-Expression ((New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'))
+</powershell>
+
+```
+Please reference (http://blog.rolpdog.com/2015/09/manage-stock-windows-amis-with-ansible.html) for more information.
 
 #### Program Usage (Commands) install, upgrade, uninstall, start, stop, restart for Linux servers
 
@@ -102,20 +112,20 @@ Below instructions are for linux control machine.
 1. Run the following command to install Halo.
     `ansible-playbook -i hosts halo.yml -t install`
 
-2. Run the following command to upgrade Halo.
-    `ansible-playbook -i hosts halo.yml -t upgrade`
-
-3. Run the following command to uninstall Halo.
+2. Run the following command to uninstall Halo.
     `ansible-playbook -i hosts halo.yml -t uninstall`
 
-4. Run the following command to start Halo.
+3. Run the following command to start Halo.
     `ansible-playbook -i hosts halo.yml -t start`
 
-5. Run the following command to stop Halo.
+4. Run the following command to stop Halo.
     `ansible-playbook -i hosts halo.yml -t stop`
 
-6. Run the following command to restart Halo.
+5. Run the following command to restart Halo.
     `ansible-playbook -i hosts halo.yml -t restart`
+
+6. To upgrade Halo agent version. Provide the later agent version in group_vars/windows.yml and run the following command.
+    `ansible-playbook -i hosts halo.yml -t install`
 
 <!---
 
