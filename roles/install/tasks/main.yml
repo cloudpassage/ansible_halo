@@ -5,3 +5,7 @@
 - include: yum_install.yml
   when: ansible_os_family == 'RedHat'
   tags: install
+
+- include: windows_install.yml
+  when: ansible_os_family == 'Windows'
+  tags: install

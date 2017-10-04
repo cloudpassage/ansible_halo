@@ -1,0 +1,5 @@
+---
+- name: Restart the Halo daemon
+  win_service:
+    name: cphalo
+    state: restarted

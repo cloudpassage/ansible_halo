@@ -5,3 +5,7 @@
 - include: yum_uninstall.yml
   when: ansible_os_family == 'RedHat'
   tags: uninstall
+
+- include: windows_uninstall.yml
+  when: ansible_os_family == 'Windows'
+  tags: uninstall

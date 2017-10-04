@@ -5,3 +5,7 @@
 - include: yum_start.yml
   when: ansible_os_family == 'RedHat'
   tags: start
+
+- include: windows_start.yml
+  when: ansible_os_family == 'Windows'
+  tags: start

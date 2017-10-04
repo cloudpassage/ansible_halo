@@ -1,0 +1,6 @@
+---
+- name: Unistall Halo
+  win_shell: '.\Uninstall.exe /S'
+  args:
+    chdir: 'C:\Program Files\CloudPassage\'
+
