@@ -73,6 +73,7 @@ Below instructions are for linux control machine.
 
     ```
         agent_key: abcdefghij123456
+        azure_id:
     ```
 
 6. Make sure to enable and configure PowerShell remoting. To automate the setup of WinRM, you can run the examples/scripts/ConfigureRemotingForAnsible.ps1 (https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1) script on the remote machine in a PowerShell console as an administrator
