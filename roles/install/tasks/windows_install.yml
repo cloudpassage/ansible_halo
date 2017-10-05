@@ -14,8 +14,13 @@
     dest: 'C:\{{ destination_dir }}\cphalo-{{ halo_package_version }}-win64.exe'
   when: stat_file.stat.exists == False
 
+- name: check if make server label
+  set_fact:
+    azure_id: "/server-label={{ azure_id }}_{{ ansible_nodename }}"
+  when: azure_id != None
+
 - name: Install and run for the first time
-  win_shell: '.\cphalo-{{ halo_package_version }}-win64.exe --% /S /agent-key={{ agent_key }} /grid="https://grid.cloudpassage.com/grid"'
+  win_shell: '.\cphalo-{{ halo_package_version }}-win64.exe --% /S /agent-key={{ agent_key }} /grid="https://grid.cloudpassage.com/grid" {{ azure_id }}'
   args:
     chdir: C:\{{ destination_dir }}\
 
