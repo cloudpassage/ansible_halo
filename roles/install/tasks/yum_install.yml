@@ -34,7 +34,7 @@
   when: azure_id != None
 
 - name: configure agent key
-  command: "/opt/cloudpassage/bin/configure --agent-key={{ agent_key }} --grid=https://grid.cloudpassage.com/grid --debug {{ azure_id }}"
+  command: "/opt/cloudpassage/bin/configure --agent-key={{ agent_key }} --grid=https://grid.cloudpassage.com/grid {{ azure_id }}"
   become: true
   become_user: root
   when: is_installed.rc > 0
